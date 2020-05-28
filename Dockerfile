@@ -17,7 +17,9 @@ RUN apt-get install -y \
     libmcrypt-dev \
     libreadline-dev \
     libfreetype6-dev \
-    g++
+    nodejs \
+    npm \
+    g++ 
 
 # 2. apache configs + document root
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
@@ -40,7 +42,7 @@ RUN docker-php-ext-install \
     mbstring \
     pdo_mysql \
     zip
-
+    
 # 5. composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
